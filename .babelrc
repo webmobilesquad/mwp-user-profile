@@ -1,0 +1,54 @@
+{
+  "env": {
+    "production": {
+      "presets": [["env", {
+        "modules": false,
+        "exclude": [
+          "transform-regenerator",
+          "transform-es2015-typeof-symbol",
+          "transform-async-to-generator"
+        ]
+      }]],
+      "plugins": [
+        "external-helpers",
+        "syntax-dynamic-import",
+        "async-to-promises",
+        "transform-class-properties",
+        "transform-object-rest-spread",
+        "transform-react-constant-elements",
+        ["transform-react-jsx", {
+          "pragma": "h"
+        }],
+        ["jsx-pragmatic", {
+          "module": "preact",
+          "export": "h",
+          "import": "h"
+        }]
+      ]
+    },
+    "test": {
+      "presets": [["env", {
+        "exclude": [
+          "transform-regenerator",
+          "transform-es2015-typeof-symbol",
+          "transform-async-to-generator"
+        ]
+      }]],
+      "plugins": [
+        "syntax-dynamic-import",
+        "async-to-promises",
+        "transform-class-properties",
+        "transform-object-rest-spread",
+        "transform-react-constant-elements",
+        ["transform-react-jsx", {
+          "pragma": "h"
+        }],
+        ["jsx-pragmatic", {
+          "module": "preact",
+          "export": "h",
+          "import": "h"
+        }]
+      ]
+    }
+  }
+}
