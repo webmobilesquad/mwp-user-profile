@@ -12,7 +12,7 @@ export default {
   input: pkg.source,
   output: [
     {
-      name: 'mwpUserMenu',
+      name: 'mwpUserProfile',
       file: pkg.browser,
       format: 'umd',
     },
@@ -21,7 +21,7 @@ export default {
   ],
   plugins: [
     postcss({
-      extract: 'dist/mwp-user-menu.css',
+      extract: 'dist/mwp-user-profile.css',
       modules: {
         generateScopedName: '[hash:base64:5]',
       },

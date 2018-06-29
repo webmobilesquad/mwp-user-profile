@@ -1,9 +1,9 @@
 {
-  "name": "mwp-user-menu",
+  "name": "mwp-user-profile",
   "version": "1.0.0",
   "author": "WMS",
   "license": "MIT",
-  "description": "A preact package that provide a menu button for user's specific actions",
+  "description": "A preact package that provide a button for user's specific actions",
   "main": "dist/mwp-user-menu.cjs.js",
   "module": "dist/mwp-user-menu.esm.js",
   "browser": "dist/mwp-user-menu.umd.js",
