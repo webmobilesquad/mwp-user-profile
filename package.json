@@ -51,7 +51,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "preact": "^8.2.9",
-    "jwt-decode": "^2.2.0"
+    "jwt-decode": "^2.2.0",
+    "node-polyglot": "^2.3.0",
+    "preact": "^8.2.9"
   }
 }
