@@ -13,7 +13,8 @@ import { renderUserProfile as initUserProfile } from 'mwp-user-profile';
 initUserProfile({
   container: document.querySelector('#user-profile'),
   idToken: 'jwt-auth0-idToken',
-  backendUrl: 'vendor-api-url'
+  mwpDomain: 'https://mywebportal.domain.com',
+  onLogout: this.customFunction
 });
 ```
 
@@ -21,7 +22,9 @@ initUserProfile({
 
 - *idToken* is a Json Web Token issued by auth0 that will be parsed by the component to display user info;
 
-- *backendUrl* is the base url for the "Profile" and "Logout" links.
+- *mwpDomain* is the domain name for the "Profile" page link;
+
+- *onLogout* is your custom code that will be called by clicking on the logout button.
 
 # preact material app
 
