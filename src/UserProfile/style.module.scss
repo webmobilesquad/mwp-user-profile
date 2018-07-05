@@ -1,12 +1,114 @@
+@mixin text-ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .UserProfile {
-  a {
-    color: pink
-  }
-  color: pink;
-  width: 100px;
-  img {
+  position: relative;
+  &_Button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    $avatar-size: 40px;
+    width: $avatar-size;
+    height: $avatar-size;
+    margin: 4px;
+    &:before {
+      content: "";
+      background: black;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      transition: opacity .225s cubic-bezier(0,0,.2,1);
+    }
+    &:hover:before {
+      opacity: 0.10;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &_Menu {
+    width: auto;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: none;
+    background: #ffffff;
+    color: rgba(0, 0, 0, 0.87);
+    border-radius: 3px;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    &__visible {
+      display: block;
+    }
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 10px;
+      border-bottom: 1px solid #eaedf0;
+      img {
+        $avatar-size: 40px;
+        width: $avatar-size;
+        height: $avatar-size;
+        border-radius: 50%;
+        margin: 5px 5px 5px 0px;
+      }
+      div {
+        width: 200px;
+        h2 {
+          margin: 0px 0px 2px 0px;
+          font-size: 0.87em;
+          opacity: 0.82;
+          @include text-ellipsis;
+        }
+        h3 {
+          margin: 0;
+          font-size: 0.75em;
+          font-weight: 500;
+          opacity: 0.73;
+          @include text-ellipsis;
+        }
+      }
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 5px 0px;
+      background: #f7f7f7;
+      li {
+        a:hover {
+          background: #e0e0e0;
+        }
+        a:active {
+          background: #d1d1d1;
+        }
+        a {
+          padding: 0px 10px;
+          text-decoration: none;
+          color: rgba(0, 0, 0, 0.87);
+          font-size: 0.75em;
+          line-height: 2.45em;
+          width: inherit;
+          display: block;
+          font-size: 0.87em;
+          line-height: 2.7em;
+        }
+      }
+    }
   }
 }
