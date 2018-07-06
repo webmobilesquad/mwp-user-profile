@@ -12,7 +12,9 @@
     "build": "rimraf dist && cross-env BABEL_ENV=production rollup -c",
     "dev": "cross-env BABEL_ENV=production rollup -c -w",
     "lint": "eslint --ext .jsx,.js .",
-    "test": "jest"
+    "test": "jest",
+    "preversion": "npm run build && npm test",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "autoprefixer": "^8.6.4",
