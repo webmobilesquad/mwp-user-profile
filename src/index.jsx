@@ -1,7 +1,6 @@
 import { render } from 'preact';
 import { UserProfile } from './UserProfile';
 
-export const renderUserProfile = ({ container, ...props }) => render(
-  <UserProfile {...props} />,
-  container,
-);
+export function renderUserProfile({ container, ...props }) {
+  return render(<UserProfile {...props} />, container);
+}

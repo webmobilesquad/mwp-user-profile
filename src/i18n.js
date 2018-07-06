@@ -1,4 +1,6 @@
-export default {
+import Polyglot from 'node-polyglot';
+
+const messages = {
   en: {
     profile: 'Profile',
     logout: 'Logout',
@@ -24,7 +26,16 @@ export default {
     logout: 'Esci',
   },
   ru: {
-    profile: 'Profil\'',
+    profile: "Profil'",
     logout: 'Vykhod iz sistemy',
   },
+};
+
+export const i18n = (locale) => {
+  let polyglotLocale = locale || 'en';
+  if (polyglotLocale.includes('-')) {
+    [polyglotLocale] = polyglotLocale.split('-');
+  }
+  const phrases = messages[polyglotLocale] || messages.en;
+  return new Polyglot({ polyglotLocale, phrases });
 };
