@@ -37,5 +37,5 @@ export function getLanguageFromLocale(locale) {
 export function i18n(locale = 'en') {
   const language = getLanguageFromLocale(locale);
   const languageMessages = messages[language] || messages.en;
-  return { t: key => languageMessages[key] };
+  return key => languageMessages[key];
 }

@@ -47,7 +47,7 @@ export class UserProfile extends Component {
     className, idToken, baseUrl, anchor, onLogout, ...props
   }, { menuVisible }) {
     const jwt = jwtDecode(idToken);
-    const translator = i18n(jwt.locale);
+    const t = i18n(jwt.locale);
 
     return (
       <div className={cx(style.UserProfile, className)} {...props}>
@@ -59,11 +59,11 @@ export class UserProfile extends Component {
           <MenuItems>
             <MenuItem href={getUserProfileUrl(baseUrl)}>
               <ProfileIcon>account_circle</ProfileIcon>
-              <MenuItemText>{translator.t('profile')}</MenuItemText>
+              <MenuItemText>{t('profile')}</MenuItemText>
             </MenuItem>
             <MenuItem href={getLogoutUrl(baseUrl)} onClick={onLogout}>
               <LogoutIcon>exit_to_app</LogoutIcon>
-              <MenuItemText>{translator.t('logout')}</MenuItemText>
+              <MenuItemText>{t('logout')}</MenuItemText>
             </MenuItem>
           </MenuItems>
         </Menu>
