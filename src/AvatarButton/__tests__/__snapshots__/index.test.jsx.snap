@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AvatarButton /> <AvatarButton /> matches snapshot 1`] = `
+preact-render-spy (1 nodes)
+-------
+<button
+  type="button"
+  class="AvatarButton"
+>
+  <img
+    src="https://mywebportal.michelin-solutions.com/msn-avatars/73c9c100a15a943fc0446f4b5e880d12.png"
+    alt="John Doe"
+   />
+</button>
+
+`;
