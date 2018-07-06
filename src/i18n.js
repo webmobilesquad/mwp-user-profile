@@ -1,5 +1,3 @@
-import Polyglot from 'node-polyglot';
-
 const messages = {
   en: {
     profile: 'Profile',
@@ -31,11 +29,13 @@ const messages = {
   },
 };
 
-export const i18n = (locale) => {
-  let polyglotLocale = locale || 'en';
-  if (polyglotLocale.includes('-')) {
-    [polyglotLocale] = polyglotLocale.split('-');
-  }
-  const phrases = messages[polyglotLocale] || messages.en;
-  return new Polyglot({ polyglotLocale, phrases });
-};
+export function getLanguageFromLocale(locale) {
+  const [language] = locale.split('-');
+  return language;
+}
+
+export function i18n(locale = 'en') {
+  const language = getLanguageFromLocale(locale);
+  const languageMessages = messages[language] || messages.en;
+  return { t: key => languageMessages[key] };
+}
