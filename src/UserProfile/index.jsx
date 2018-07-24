@@ -33,12 +33,13 @@ export class UserProfile extends Component {
     }
   }
 
-  handleWindowClick = () => {
-    this.setState({ menuVisible: false });
+  handleWindowClick = (event) => {
+    if (event.target !== this.button) {
+      this.setState({ menuVisible: false });
+    }
   };
 
-  handleClick = (event) => {
-    event.stopPropagation();
+  handleClick = () => {
     const { menuVisible } = this.state;
     this.setState({ menuVisible: !menuVisible });
   };
@@ -51,7 +52,14 @@ export class UserProfile extends Component {
 
     return (
       <div className={cx(style.UserProfile, className)} {...props}>
-        <AvatarButton src={jwt.picture} alt={jwt.name} onClick={this.handleClick} />
+        <AvatarButton
+          src={jwt.picture}
+          alt={jwt.name}
+          onClick={this.handleClick}
+          forwardedRef={(ref) => {
+            this.button = ref;
+          }}
+        />
         <Menu visible={menuVisible} anchor={anchor}>
           <MenuHeader>
             <UserProfileHeader jwt={jwt} href={getUserProfileUrl(baseUrl)} />
