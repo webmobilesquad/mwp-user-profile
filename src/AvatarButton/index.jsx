@@ -1,4 +1,5 @@
 import style from './style.module.scss';
+import { AvatarPicture } from '../AvatarPicture';
 
 export function AvatarButton({
   src, alt, forwardedRef, ...props
@@ -10,7 +11,7 @@ export function AvatarButton({
       ref={forwardedRef}
       {...props}
     >
-      <img src={src} alt={alt} />
+      <AvatarPicture src={src} alt={alt} />
     </button>
   );
 }
