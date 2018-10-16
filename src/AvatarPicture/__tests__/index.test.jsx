@@ -40,4 +40,12 @@ describe('<AvatarPicture />', () => {
       ),
     ).toMatchSnapshot();
   });
+
+  test('<AvatarPicture /> take more props in account', () => {
+    expect(
+      render(
+        <AvatarPicture className="className"/>,
+      ),
+    ).toMatchSnapshot();
+  });
 });
