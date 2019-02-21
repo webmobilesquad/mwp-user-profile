@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import jwtDecode from 'jwt-decode';
 import { Component } from 'preact';
+import i18next from 'i18next';
 import { AvatarButton } from '../AvatarButton';
-import { i18n } from '../i18n';
 import {
   LogoutIcon,
   Menu,
@@ -48,7 +48,6 @@ export class UserProfile extends Component {
     className, idToken, baseUrl, anchor, onLogout, ...props
   }, { menuVisible }) {
     const jwt = jwtDecode(idToken);
-    const t = i18n(jwt.locale);
 
     return (
       <div className={cx(style.UserProfile, className)} {...props}>
@@ -67,11 +66,11 @@ export class UserProfile extends Component {
           <MenuItems>
             <MenuItem href={getUserProfileUrl(baseUrl)}>
               <ProfileIcon>account_circle</ProfileIcon>
-              <MenuItemText>{t('profile')}</MenuItemText>
+              <MenuItemText>{i18next.t('profile')}</MenuItemText>
             </MenuItem>
             <MenuItem href={getLogoutUrl(baseUrl)} onClick={onLogout}>
               <LogoutIcon>exit_to_app</LogoutIcon>
-              <MenuItemText>{t('logout')}</MenuItemText>
+              <MenuItemText>{i18next.t('logout')}</MenuItemText>
             </MenuItem>
           </MenuItems>
         </Menu>

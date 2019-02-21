@@ -1,41 +1,63 @@
+import i18next from 'i18next';
+import i18nextBrowserLanguageDetector from 'i18next-browser-languagedetector';
+
 const messages = {
   en: {
-    profile: 'Profile',
-    logout: 'Logout',
+    translation: {
+      profile: 'Profile',
+      logout: 'Logout',
+    },
   },
   fr: {
-    profile: 'Profil',
-    logout: 'Déconnexion',
+    translation: {
+      profile: 'Profil',
+      logout: 'Déconnexion',
+    },
   },
   de: {
-    profile: 'Benutzerprofil',
-    logout: 'Abschaltung',
+    translation: {
+      profile: 'Benutzerprofil',
+      logout: 'Abschaltung',
+    },
   },
   es: {
-    profile: 'Perfil',
-    logout: 'Desconexión',
+    translation: {
+      profile: 'Perfil',
+      logout: 'Desconexión',
+    },
   },
   pt: {
-    profile: 'Perfil',
-    logout: 'Desconexão',
+    translation: {
+      profile: 'Perfil',
+      logout: 'Desconexão',
+    },
   },
   it: {
-    profile: 'Profilo',
-    logout: 'Esci',
+    translation: {
+      profile: 'Profilo',
+      logout: 'Esci',
+    },
   },
   ru: {
-    profile: 'Профиль',
-    logout: 'Выйти из системы',
+    translation: {
+      profile: 'Профиль',
+      logout: 'Выйти из системы',
+    },
   },
 };
 
-export function getLanguageFromLocale(locale) {
-  const [language] = locale.split('-');
-  return language;
-}
-
-export function i18n(locale = 'en') {
-  const language = getLanguageFromLocale(locale);
-  const languageMessages = messages[language] || messages.en;
-  return key => languageMessages[key];
-}
+export const init = () => (
+  i18next
+    .use(i18nextBrowserLanguageDetector)
+    .init(
+      {
+        fallbackLng: 'en',
+        resources: messages,
+      },
+      (err) => {
+        if (err) {
+          console.log('i18n init error'); // eslint-disable-line no-console
+        }
+      },
+    )
+);

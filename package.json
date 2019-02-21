@@ -53,6 +53,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "i18next": "^15.0.4",
+    "i18next-browser-languagedetector": "^3.0.1",
     "jwt-decode": "^2.2.0",
     "preact": "^8.2.9"
   }
