@@ -51,6 +51,12 @@ export const init = () => (
     .use(i18nextBrowserLanguageDetector)
     .init(
       {
+        detection: {
+          // This ensures the language detector always updates
+          // See https://github.com/i18next/i18next-browser-languageDetector#detector-options
+          order: ['navigator'],
+          caches: [],
+        },
         fallbackLng: 'en',
         resources: messages,
       },
