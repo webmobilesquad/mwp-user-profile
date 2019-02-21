@@ -1,6 +1,6 @@
 {
   "name": "mwp-user-profile",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "author": "WMS",
   "license": "MIT",
   "description": "A preact package that provide a button for user's specific actions",
