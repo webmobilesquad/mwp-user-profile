@@ -24,8 +24,8 @@ const messages = {
     logout: 'Esci',
   },
   ru: {
-    profile: "Profil'",
-    logout: 'Vykhod iz sistemy',
+    profile: 'Профиль',
+    logout: 'Выйти из системы',
   },
 };
 
